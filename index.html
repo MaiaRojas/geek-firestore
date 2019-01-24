@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Test Firestore</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+</head>
+<body>
+  <div>
+    <h2>CRUD</h2>
+    <div>
+      <h3>CREATE</h3>
+      <button id="btnAddKey">AddKey</button>
+      <button id="btnAdd">Add</button>
+      <button id="btnAddWithMerge">Add Merge</button>
+    </div>
+    <div>
+      <h3>READ</h3>
+      <button id="btnQuerySingle">Query Single</button>
+      <button id="queryByTitle">Query By Title</button>
+      <button id="queryAllPosts">All Posts</button>
+      <button id="queryPostsByTitleAndAutor">Query Title Autor</button>
+
+    </div>
+    <div>
+      <h3>UPDATE</h3>
+      <button id="btnupdate">Update</button>
+      <button id="btnUpdateObject">Update Object</button>
+    </div>
+    <div>
+      <h3>DELETE</h3>
+      <button id="btnDeleteFields">Delete Fields</button>
+      <button id="btnDelete">Delete</button>
+    </div>
+    <div>
+      <h3>BATCH</h3>
+      <button id="btnBatch">Batch</button>
+    </div>
+  </div>
+</body>
+<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCqg3qtt7f3mQpD2aml1fsgsn94Cw_QGvs",
+    authDomain: "firestore-geek.firebaseapp.com",
+    databaseURL: "https://firestore-geek.firebaseio.com",
+    projectId: "firestore-geek",
+    storageBucket: "firestore-geek.appspot.com",
+    messagingSenderId: "606395273304"
+  };
+  firebase.initializeApp(config);
+</script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+<script src="firestore.js"></script>
+</html>
