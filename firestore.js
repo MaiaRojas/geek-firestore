@@ -1,7 +1,7 @@
 const bd = firebase.firestore();
 
 window.firestore = {
-  addWithKey: (post) => {
+  btnCreaDocumentoUID: (post) => {
     bd
       .collection('posts')
       .add({
@@ -15,7 +15,7 @@ window.firestore = {
       })
   },
 
-  add: (post, id) => {
+  creaDocumento: (id, post) => {
     bd.collection('posts').doc(id).set({
       title: post.title,
       description: post.description,
@@ -23,27 +23,27 @@ window.firestore = {
       date: firebase.firestore.FieldValue.serverTimestamp()
     })
 
-    console.log('Se crea post :)')
+    console.log('Se crea post :) con ID', id)
   },
 
-  addWithMerge: (imageLink, id) => {
+  btnAñadeNuevoAtributoDocumento: (id, imageLink) => {
     bd.collection('posts').doc(id).set(
       {
         imageLink: imageLink
       },
       { merge: true }
     )
-    console.log(`Al documento ${id}, se agrega el atributo imagenlink`)
+    console.log(`Al documento con  ${id}, se agrega el atributo imagenlink`)
   },
 
-  querySingle: (id) => {
+  queryDocumento: (id) => {
     let ref = bd.collection('posts').doc(id)
     ref.get().then(respDoc => {
-      console.log(`querySingle postID ${id} => ${respDoc.data().title}`)
+      console.log(`Del  documento ${id} =>  El atributo title es ${respDoc.data().title}`)
     })
   },
 
-  queryByTitle: (title) => {
+  queryTitulo: (title) => {
     bd
       .collection('posts')
       .where('title', '==', title)
@@ -51,7 +51,7 @@ window.firestore = {
       .then(querySnapshot => {
         querySnapshot.forEach(doc => {
           console.log(
-            `queryByTitle postTitle ${title}=> ${doc.data().title}`
+            `Del atributo ( ${title}) => El autor es  ${doc.data().autor}`
           )
         })
       })
@@ -65,12 +65,12 @@ window.firestore = {
       .get()
       .then(querySnapshot => {
         querySnapshot.forEach(doc => {
-          console.log(`allPosts con Limit 3 => ${doc.data().title}`)
+          console.log(`Todos los Posts (Limit 3 ) => ${doc.data().title}`)
         })
       })
   },
 
-  queryPostsByTitleAndAutor: (title, autor) => {
+  queryPostsporTituloAutor: (title, autor) => {
     bd
       .collection('posts')
       .where('title', '==', title)
@@ -79,15 +79,15 @@ window.firestore = {
       .then(querySnapshot => {
         querySnapshot.forEach(doc => {
           console.log(
-            `queryPostsByTitleAndAutor Title:${title}, autor:${autor} => ${doc.data().description}`
+            `queryPostsporTituloAutor => Title:${title}, autor:${autor} => ${doc.data().description}`
           )
         })
       })
   },
 
-  update: (id, imageLink) => {
+  updateAtributo: (id, imageLink) => {
     let refUser = bd.collection('posts').doc(id)
-    console.log(`Post => ${id}, se actualiza imagenlink`)
+    console.log(`Del Post => ${id}, se actualiza  el atributo imagenlink con ${imageLink}`)
 
     refUser.update({
       imageLink: imageLink
@@ -95,7 +95,7 @@ window.firestore = {
   },
 
   updateObject: (id) => {
-    console.log(`Post => ${id}, se agrega post.categoria`)
+    console.log(`Del post => ${id}, se agrega un atributo 'likes.megusta': '1'`)
     let refUser = bd.collection('posts').doc(id)
 
     refUser.update({
@@ -103,15 +103,15 @@ window.firestore = {
     })
   },
 
-  deleteFields: (id) => {
-    console.log(`Post => ${id}, se elimina imageLink`)
+  deleteAtributos: (id) => {
+    console.log(`El post => ${id}, se elimina el atributo imageLink`)
     bd.collection('posts').doc(id).update({
       imageLink: firebase.firestore.FieldValue.delete()
     })
   },
 
-  delete: (id) => {
-    console.log(`Post => ${id}, se elimina`)
-    this.db.collection('posts').doc(id).delete()
+  eliminar: (id) => {
+    console.log(`El documento=> ${id}, es eliminado`)
+    bd.collection('posts').doc(id).delete()
   }
 }
