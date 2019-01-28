@@ -1,0 +1,11 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h4, h1 {
+  font-weight: 700;
+}
+
+.container {
+  text-align: center;
+}

@@ -6,37 +6,37 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Test Firestore</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
-  <div>
-    <h2>CRUD</h2>
-    <div>
-      <h3>CREATE</h3>
-      <button id="btnAddKey">AddKey</button>
-      <button id="btnAdd">Add</button>
-      <button id="btnAddWithMerge">Add Merge</button>
+  <div class="container">
+    <div class="column">
+      <h1>Como crear, leer, actualizar y borrar en firestore</h1>
     </div>
-    <div>
-      <h3>READ</h3>
-      <button id="btnQuerySingle">Query Single</button>
-      <button id="queryByTitle">Query By Title</button>
-      <button id="queryAllPosts">All Posts</button>
-      <button id="queryPostsByTitleAndAutor">Query Title Autor</button>
+    <div class="column">
+      <h4>Crea</h4>
+      <button class="button is-success" id="btnAddKey">Crea un documento con key </button>
+      <button class="button is-success" id="btnAdd">Crea un documento</button>
+      <button class="button is-success" id="btnAddWithMerge">Crea una nueva atributo en el documento</button>
+    </div>
+    <div class="column">
+      <h4>Lee</h4>
+      <button class="button is-success" id="btnQuerySingle">Query Single</button>
+      <button class="button is-success" id="queryByTitle">Query By Title</button>
+      <button class="button is-success" id="queryAllPosts">Lee totos los posts</button>
+      <button class="button is-success" id="queryPostsByTitleAndAutor">Query Title Autor</button>
 
     </div>
-    <div>
-      <h3>UPDATE</h3>
-      <button id="btnupdate">Update</button>
-      <button id="btnUpdateObject">Update Object</button>
+    <div class="column">
+      <h4>Actualiza</h4>
+      <button class="button is-success" id="btnupdate">Actualiza</button>
+      <button class="button is-success" id="btnUpdateObject">Update Object</button>
     </div>
-    <div>
-      <h3>DELETE</h3>
-      <button id="btnDeleteFields">Delete Fields</button>
-      <button id="btnDelete">Delete</button>
-    </div>
-    <div>
-      <h3>BATCH</h3>
-      <button id="btnBatch">Batch</button>
+    <div class="column">
+      <h4>Elimina</h4>
+      <button class="button is-success" id="btnDeleteFields">ELimina una propiedad de un documento</button>
+      <button class="button is-success" id="btnDelete">Elimina un documento</button>
     </div>
   </div>
 </body>
@@ -57,4 +57,5 @@
 </script>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 <script src="firestore.js"></script>
+<script src="app.js"></script>
 </html>
